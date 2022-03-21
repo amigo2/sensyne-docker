@@ -83,11 +83,8 @@ def test_delete_reading():
 
 
 def test_delete_non_existing_reading_and_fails():
-    response = client.delete("/v1/reading/?reading_uuid=1faafa60-c19a-4dd1-b5b0-e1d55f946444")
-    assert response.status_code == 400
-    assert response.json() == {
-        "detail": "Not found"
-    }
+    response = client.delete("/v1/reading/?reading_uuid=unknown-reading-uuid")
+    assert response.status_code == 422
 
 
 

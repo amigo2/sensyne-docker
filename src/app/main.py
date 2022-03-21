@@ -41,6 +41,8 @@ async def detailed_reading(reading_uuid: UUID):
                         "recorded_at": readings.recorded_at
                     }
                     return context
+                elif readings.reading_uuid != reading_uuid:
+                    pass
                 else:
                     raise HTTPException(status_code=400, detail="Detailed reading not found")
     except Exception as e:
@@ -61,6 +63,8 @@ async def update_reading(reading_uuid: UUID, reading: Reading):
                     readings.recorded_at = reading.recorded_at
                     return {"reading_uuid": f"reading been updated with"
                                 f" reading id: {reading_uuid}"}
+                elif readings.reading_uuid != reading_uuid:
+                    pass
                 else:
                     raise HTTPException(status_code=404, detail="Reading not found")
 
@@ -77,6 +81,8 @@ async def delete_reading(reading_uuid: UUID):
                 return {"deleted": f"reading with reading id:"
                                    f" {reading_uuid}, "
                                    f"has been successfully deleted."}
+            elif readings.reading_uuid != reading_uuid:
+                pass
             else:
                 raise HTTPException(status_code=404, detail="reading not found")
     except Exception as e:
