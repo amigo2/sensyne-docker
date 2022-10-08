@@ -71,7 +71,7 @@ pytest
 
 ## Encountered Problems
 - I worked during the development process with the integrated swagger and with tests. Indeed,
-  I did not realize about the Postman collections to be test against it till last moment.
+  I did not realize about the Postman collections to be tested against it till last moment.
   When started testing the Postman collections gave me issues which neither swagger nor
   tests gave me, still not quite sure what is the problem.
 
